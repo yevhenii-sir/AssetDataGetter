@@ -186,7 +186,7 @@ namespace RoomAssetGetData
                 };
             } catch
             {
-                throw new Exception("Ошибка на функции обработки операций (r, rb, +, -, /, *)");
+                throw new Exception("An error on the operation processing function (r, rb, +, -, /, *)");
             }
             
         }

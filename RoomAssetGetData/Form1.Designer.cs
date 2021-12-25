@@ -29,7 +29,6 @@ namespace RoomAssetGetData
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Asset_data));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -84,7 +83,7 @@ namespace RoomAssetGetData
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(196, 29);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Обновить";
+            this.button1.Text = "Refresh";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -93,9 +92,9 @@ namespace RoomAssetGetData
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(322, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 20);
+            this.label2.Size = new System.Drawing.Size(52, 20);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Результат:";
+            this.label2.Text = "Result:";
             // 
             // button2
             // 
@@ -104,7 +103,7 @@ namespace RoomAssetGetData
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(207, 29);
             this.button2.TabIndex = 5;
-            this.button2.Text = "Копировать";
+            this.button2.Text = "COPY";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -139,9 +138,9 @@ namespace RoomAssetGetData
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(322, 188);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 20);
+            this.label3.Size = new System.Drawing.Size(98, 20);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Добавить елемент:";
+            this.label3.Text = "Add element:";
             // 
             // button3
             // 
@@ -199,7 +198,7 @@ namespace RoomAssetGetData
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(94, 29);
             this.button8.TabIndex = 15;
-            this.button8.Text = "Очистить";
+            this.button8.Text = "Full Clear";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -235,7 +234,6 @@ namespace RoomAssetGetData
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-           // this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Asset_data";
             this.Text = "Assets Data Getter";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Asset_data_FormClosing);
