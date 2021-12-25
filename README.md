@@ -9,7 +9,7 @@ You need to open the **\*.yy** file of your room, and find the lines there (show
 - **rN** - remove a range of N characters from the beginning of a string
 - **rbN** - remove a range of N characters from the end of a string
 - **+N, -N, \*N, /N** - simple math operations
-
+#### Features: save sheet on exit and change
 --- 
 ### Example
 
