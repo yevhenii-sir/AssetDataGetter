@@ -13,4 +13,4 @@ You need to open the **\*.yy** file of your room, and find the lines there (show
 --- 
 ### Example
 
-<p align="center" ><img width = "600px" src="https://user-images.githubusercontent.com/36339434/147385073-284f392d-454f-4b1d-9703-cd79aaf980a2.png"></p>
+<p align="center" ><img width = "600px" src="https://user-images.githubusercontent.com/36339434/147391158-d95f2136-e420-4f43-b23d-fa4f46e8c8e9.png"></p>
