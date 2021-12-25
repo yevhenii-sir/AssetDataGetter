@@ -74,6 +74,11 @@ namespace RoomAssetGetData
                 using (StreamReader streamReader = new StreamReader("previous.ini"))
                 {
                     string tempString = null;
+                    if (streamReader.ReadLine() == "1")
+                    {
+                        checkBox1.Checked = true;
+                    } 
+
                     while ((tempString = streamReader.ReadLine()) != null)
                     {
                         listBox1.Items.Add(tempString);
@@ -150,6 +155,11 @@ namespace RoomAssetGetData
                     }
 
                     textBox2.Text += tempString + "\r\n";
+                }
+
+                if (checkBox1.Checked)
+                {
+                    Clipboard.SetText(textBox2.Text);
                 }
             } catch (Exception exc)
             {
@@ -261,6 +271,8 @@ namespace RoomAssetGetData
         {
             using (StreamWriter streamWriter = new StreamWriter(new FileStream("previous.ini", FileMode.Create)))
             {
+                streamWriter.WriteLine(checkBox1.Checked ? "1" : "0");
+
                 foreach (var text in listBox1.Items)
                 {
                     streamWriter.WriteLine(text);
@@ -286,6 +298,29 @@ namespace RoomAssetGetData
         private void button10_Click(object sender, EventArgs e)
         {
             textBox1.Text = Clipboard.GetText();
+            if (listBox1.Items.Count > 0)
+            {
+                button1_Click(sender, e);
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            bool ctrlV = e.Modifiers == Keys.Control && e.KeyCode == Keys.V;
+            if (ctrlV && listBox1.Items.Count > 0)
+            {
+                button1_Click(sender, e);
+            }
         }
     }
 }
