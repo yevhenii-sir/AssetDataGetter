@@ -277,5 +277,15 @@ namespace RoomAssetGetData
         {
             listBox1.Items.Clear();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = Clipboard.GetText();
+        }
     }
 }

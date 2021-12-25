@@ -47,6 +47,8 @@ namespace RoomAssetGetData
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -110,6 +112,7 @@ namespace RoomAssetGetData
             // 
             // treeView1
             // 
+            this.treeView1.FullRowSelect = true;
             this.treeView1.Location = new System.Drawing.Point(6, 155);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(310, 372);
@@ -213,11 +216,35 @@ namespace RoomAssetGetData
             this.label4.TabIndex = 16;
             this.label4.Text = "Create by Yevhenii Sirenko";
             // 
+            // button9
+            // 
+            this.button9.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button9.Location = new System.Drawing.Point(122, 6);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(94, 19);
+            this.button9.TabIndex = 17;
+            this.button9.Text = "CLEAR";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button10.Location = new System.Drawing.Point(222, 6);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(94, 19);
+            this.button10.TabIndex = 18;
+            this.button10.Text = "PASTE";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // Asset_data
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 533);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button9);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -264,6 +291,8 @@ namespace RoomAssetGetData
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
     }
 }
 
