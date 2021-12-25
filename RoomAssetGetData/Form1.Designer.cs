@@ -29,6 +29,7 @@ namespace RoomAssetGetData
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Asset_data));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -234,6 +235,7 @@ namespace RoomAssetGetData
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Asset_data";
             this.Text = "Assets Data Getter";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Asset_data_FormClosing);

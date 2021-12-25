@@ -5,7 +5,8 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <Authors>Yevhenii Sirenko</Authors>
-    <ApplicationIcon>pngwing.com (2).ico</ApplicationIcon>
+    <ApplicationIcon>yoyo.ico</ApplicationIcon>
+    <Win32Resource />
   </PropertyGroup>
 
   <ItemGroup>

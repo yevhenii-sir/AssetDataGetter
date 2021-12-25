@@ -167,8 +167,8 @@ namespace RoomAssetGetData
             {
                 return commandType switch
                 {
-                    "r" => text.Substring(Convert.ToInt32(commandNum)),
-                    "rb" => text.Remove(Convert.ToInt32(commandNum)),
+                    "r" => text.Substring(Math.Clamp(Convert.ToInt32(commandNum), 0, text.Length)),
+                    "rb" => text.Remove(Math.Clamp(Convert.ToInt32(commandNum), 0, text.Length)),
                     "+" => (Convert.ToDouble(text) + Convert.ToDouble(commandNum)).ToString(),
                     "-" => (Convert.ToDouble(text) - Convert.ToDouble(commandNum)).ToString(),
                     "/" => (Convert.ToDouble(text) / Convert.ToDouble(commandNum)).ToString(),
