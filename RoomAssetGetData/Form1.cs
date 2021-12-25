@@ -11,12 +11,13 @@ using System.IO;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json.Linq;
 
 namespace RoomAssetGetData
 {
     public partial class Asset_data : Form
     {
-        public class Rootobject
+        public class AssetData
         {
             public Asset[] assets { get; set; }
             public bool visible { get; set; }
@@ -36,7 +37,7 @@ namespace RoomAssetGetData
 
         public class Asset
         {
-            public Spriteid spriteId { get; set; }
+            public Spriteid spriteid { get; set; }
             public float headPosition { get; set; }
             public float rotation { get; set; }
             public float scaleX { get; set; }
@@ -64,7 +65,9 @@ namespace RoomAssetGetData
         public Asset_data()
         {
             InitializeComponent();
-            Fill_TreeView();
+
+            treeView1.Nodes.Add(Fill_Tree(typeof(AssetData)));
+            treeView1.ExpandAll();
 
             if (File.Exists("previous.ini"))
             {
@@ -79,38 +82,22 @@ namespace RoomAssetGetData
             }
         }
 
-        public void Fill_TreeView()
+        public TreeNode Fill_Tree(Type type)
         {
-            foreach (PropertyInfo fil in typeof(Rootobject).GetProperties())
+            TreeNode tempTree = new TreeNode(type.Name.ToLower());
+
+            foreach (PropertyInfo property in type.GetProperties())
             {
-                if (fil.PropertyType.Name == "Asset[]")
+                if (!property.PropertyType.IsPrimitive && property.PropertyType.Name != "String" && property.PropertyType.Name != "Object[]" && property.PropertyType.Name != "Object")
                 {
-                    TreeNode assetNode = new TreeNode("assets");
-                    foreach (PropertyInfo info2 in typeof(Asset).GetProperties())
-                    { 
-                        if (info2.PropertyType.Name == "Spriteid")
-                        {
-                            TreeNode spriteNode = new TreeNode("spriteId");
-                            foreach (PropertyInfo info3 in typeof(Spriteid).GetProperties())
-                            {
-                                spriteNode.Nodes.Add(info3.Name);
-                            }
-                            assetNode.Nodes.Add(spriteNode);
-                        } else
-                        {
-                            assetNode.Nodes.Add(info2.Name);
-                        }
-                    }
-                    treeView1.Nodes.Add(assetNode);
-                    //asset.Nodes.Add(assetNode);
+                    tempTree.Nodes.Add(Fill_Tree(property.PropertyType.IsArray ? property.PropertyType.GetElementType() : property.PropertyType));
                 } else
                 {
-                    //treeView1.Nodes.Add(fil.Name);
-                    //asset.Nodes.Add(fil.Name);
+                    tempTree.Nodes.Add(property.Name);
                 }
             }
-
-            treeView1.Nodes[0].Expand();
+            
+            return tempTree;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -118,7 +105,7 @@ namespace RoomAssetGetData
             textBox2.Text = "";
             try
             {
-                Rootobject rootobject = JsonConvert.DeserializeObject<Rootobject>(textBox1.Text);
+                AssetData rootobject = JsonConvert.DeserializeObject<AssetData>(textBox1.Text);
 
                 Asset[] asset = rootobject.assets;
 
@@ -142,14 +129,18 @@ namespace RoomAssetGetData
 
                             var split_string = forActionString.Trim('$').Split(".");
 
-                            if (split_string.Length == 3)
+                            if (split_string.Length == 4)
                             {
-                                dynamic spriteid = asset1.GetType().GetProperty(split_string[1]).GetValue(asset1);
-                                tempString += ActionWithString(spriteid.GetType().GetProperty(split_string[2]).GetValue(spriteid).ToString(), action);
+                                dynamic spriteid = asset1.GetType().GetProperty(split_string[2]).GetValue(asset1);
+                                tempString += ActionWithString(spriteid.GetType().GetProperty(split_string[3]).GetValue(spriteid).ToString(), action);
                             }
-                            else
+                            else if (split_string.Length == 3)
                             {
-                                tempString += ActionWithString(asset1.GetType().GetProperty(split_string[1]).GetValue(asset1).ToString(), action);
+                                tempString += ActionWithString(asset1.GetType().GetProperty(split_string[2]).GetValue(asset1).ToString(), action);
+                            } else
+                            {
+                                var a = rootobject.GetType().GetProperty(split_string[1]).GetValue(rootobject).ToString();
+                                tempString += ActionWithString(a, action);
                             }
                         }
                         else
