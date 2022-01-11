@@ -245,6 +245,7 @@ namespace RoomAssetGetData
             {
                 listBox1.Items[listBox1.SelectedIndex] = textBox3.Text;
                 SaveList();
+                button1_Click(sender, e);
             }
             catch { }
         }

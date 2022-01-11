@@ -55,6 +55,7 @@ namespace RoomAssetGetData
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(6, 29);
+            this.textBox1.MaxLength = 3207670;
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(310, 140);
