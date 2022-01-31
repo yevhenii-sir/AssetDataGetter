@@ -179,6 +179,7 @@ namespace RoomAssetGetData
                 {
                     "r" => text.Substring(Math.Clamp(Convert.ToInt32(commandNum), 0, text.Length)),
                     "rb" => text.Remove(Math.Clamp(Convert.ToInt32(commandNum), 0, text.Length)),
+                    "rbb" => text.Remove(text.Length - Math.Clamp(Convert.ToInt32(commandNum), 0, text.Length)),
                     "+" => (Convert.ToDouble(text) + Convert.ToDouble(commandNum)).ToString(),
                     "-" => (Convert.ToDouble(text) - Convert.ToDouble(commandNum)).ToString(),
                     "/" => (Convert.ToDouble(text) / Convert.ToDouble(commandNum)).ToString(),
@@ -303,16 +304,6 @@ namespace RoomAssetGetData
             {
                 button1_Click(sender, e);
             }
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            
         }
 
         private void textBox1_KeyUp(object sender, KeyEventArgs e)
